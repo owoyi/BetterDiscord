@@ -2,8 +2,8 @@
  * @name AutoAttendance
  * @author 오떱이
  * @authorId 524980170554212363
- * @version 1.1
- * @description Sends attendance messages automatically once a day every day.
+ * @version 1.0
+ * @description Sends attendance messages automatically once a day every day. 🇰🇷 Korean language support.
  * @invite MsMrvYXR4A
  * @website https://www.youtube.com/c/오떱이
  * @source https://github.com/owoyi/BetterDiscord/tree/main/Plugins/AutoAttendance
@@ -13,25 +13,20 @@
 
 module.exports = (_ => {
 	const config = {
-		info: {
-		    name: "AutoAttendance",
-				author: "오떱이",
-		    authors: [{
-					name: "오떱이",
-					discord_id: "524980170554212363",
-					github_username: "owoyi"
-		    }],
-		    version: "1.1",
-		    description: "Sends attendance messages automatically once a day every day. 🇰🇷 Korean language support.",
-		    github: "https://github.com/owoyi/BetterDiscord/tree/main/Plugins/AutoAttendance",
-		    github_raw: "https://raw.githubusercontent.com/owoyi/BetterDiscord/main/Plugins/AutoAttendance/AutoAttendance.plugin.js"
-		},
-			/* changelog: [{
-				title: "GUI Works Again",
-				type: "fixed",
-				items: ["Fixed for latest Discord changes which prevented the wrappers from being added via click."]
-			}], */
-	    };
+        info: {
+            name: "AutoAttendance",
+			author: "오떱이",
+            authors: [{
+				name: "오떱이",
+				discord_id: "524980170554212363",
+				github_username: "owoyi"
+            }],
+            version: "1.0",
+            description: "Sends attendance messages automatically once a day every day. 🇰🇷 Korean language support.",
+            github: "https://github.com/owoyi/BetterDiscord/tree/main/Plugins/AutoAttendance",
+            github_raw: "https://raw.githubusercontent.com/owoyi/BetterDiscord/main/Plugins/AutoAttendance/AutoAttendance.plugin.js"
+        }
+    };
 
 	return !window.BDFDB_Global || (!window.BDFDB_Global.loaded && !window.BDFDB_Global.started) ? class {
 		getName () {return config.info.name;}
@@ -109,8 +104,6 @@ module.exports = (_ => {
 				
 				let dataBase = this;
 				aliases = BDFDB.DataUtils.load(this, "channels");
-				const channel = this.getChannel('997768944884662323')
-				console.log(channel);
 				
 				this.checking = setInterval(function() {
 					//today = new Date().toTimeString().split(" ")[0];
@@ -191,6 +184,7 @@ module.exports = (_ => {
 											ref: instance => {if (instance) values.addButton = instance;},
 											onClick: instance => {
 												if (isNaN(values.channelValue)) {
+													BdApi.showToast(this.labels.channel_only_number, { type: 'error' });
 													instance.target.disabled = true;
 													values.channelInstance.props.value = "";
 													values.channelInstance.props.errorMessage = this.labels.channel_only_number;
@@ -200,6 +194,7 @@ module.exports = (_ => {
 														this.saveChannels(descriptionValue, values, afterSend);
 														BDFDB.PluginUtils.refreshSettingsPanel(this, settingsPanel, collapseStates);
 													} else {
+														BdApi.showToast(this.labels.add_unknown_channel, { type: 'error' });
 														instance.target.disabled = true;
 														//values.channelInstance.props.value = "";
 														values.channelInstance.props.errorMessage = this.labels.add_unknown_channel;
