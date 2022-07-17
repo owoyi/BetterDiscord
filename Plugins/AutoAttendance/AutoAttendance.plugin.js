@@ -6,8 +6,8 @@
  * @description Sends attendance messages automatically once a day every day.
  * @invite MsMrvYXR4A
  * @website https://www.youtube.com/c/오떱이
- * @source https://github.com/owoyi/BetterDiscord/tree/master/Plugins/AutoAttendance
- * @updateUrl https://raw.githubusercontent.com/owoyi/BetterDiscord/master/Plugins/AutoAttendance/AutoAttendance.plugin.js
+ * @source https://github.com/owoyi/BetterDiscord/tree/main/Plugins/AutoAttendance
+ * @updateUrl https://raw.githubusercontent.com/owoyi/BetterDiscord/main/Plugins/AutoAttendance/AutoAttendance.plugin.js
  */
  
 
