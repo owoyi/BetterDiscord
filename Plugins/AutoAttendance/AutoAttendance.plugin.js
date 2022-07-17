@@ -13,13 +13,25 @@
 
 module.exports = (_ => {
 	const config = {
-		"info": {
-			"name": "AutoAttendance",
-			"author": "오떱이",
-			"version": "1.1",
-			"description": "Sends attendance messages automatically once a day every day. 🇰🇷 Korean language support."
-		}
-	};
+		info: {
+		    name: "AutoAttendance",
+				author: "오떱이",
+		    authors: [{
+					name: "오떱이",
+					discord_id: "524980170554212363",
+					github_username: "owoyi"
+		    }],
+		    version: "1.1",
+		    description: "Sends attendance messages automatically once a day every day. 🇰🇷 Korean language support.",
+		    github: "https://github.com/owoyi/BetterDiscord/tree/main/Plugins/AutoAttendance",
+		    github_raw: "https://raw.githubusercontent.com/owoyi/BetterDiscord/main/Plugins/AutoAttendance/AutoAttendance.plugin.js"
+		},
+			/* changelog: [{
+				title: "GUI Works Again",
+				type: "fixed",
+				items: ["Fixed for latest Discord changes which prevented the wrappers from being added via click."]
+			}], */
+	    };
 
 	return !window.BDFDB_Global || (!window.BDFDB_Global.loaded && !window.BDFDB_Global.started) ? class {
 		getName () {return config.info.name;}
