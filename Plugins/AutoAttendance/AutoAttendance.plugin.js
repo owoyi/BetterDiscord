@@ -2,7 +2,7 @@
  * @name AutoAttendance
  * @author 오떱이
  * @authorId 524980170554212363
- * @version 1.0
+ * @version 1.3
  * @description Sends attendance messages automatically once a day every day. 🇰🇷 Korean language support.
  * @invite MsMrvYXR4A
  * @website https://www.youtube.com/c/오떱이
@@ -13,20 +13,20 @@
 
 module.exports = (_ => {
 	const config = {
-        info: {
-            name: "AutoAttendance",
+		info: {
+			name: "AutoAttendance",
 			author: "오떱이",
-            authors: [{
+			authors: [{
 				name: "오떱이",
 				discord_id: "524980170554212363",
 				github_username: "owoyi"
-            }],
-            version: "1.0",
-            description: "Sends attendance messages automatically once a day every day. 🇰🇷 Korean language support.",
-            github: "https://github.com/owoyi/BetterDiscord/tree/main/Plugins/AutoAttendance",
-            github_raw: "https://raw.githubusercontent.com/owoyi/BetterDiscord/main/Plugins/AutoAttendance/AutoAttendance.plugin.js"
-        }
-    };
+			}],
+			version: "1.3",
+				description: "Sends attendance messages automatically once a day every day. 🇰🇷 Korean language support.",
+			github: "https://github.com/owoyi/BetterDiscord/tree/main/Plugins/AutoAttendance",
+			github_raw: "https://raw.githubusercontent.com/owoyi/BetterDiscord/main/Plugins/AutoAttendance/AutoAttendance.plugin.js"
+		}
+	};
 
 	return !window.BDFDB_Global || (!window.BDFDB_Global.loaded && !window.BDFDB_Global.started) ? class {
 		getName () {return config.info.name;}
